@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,21 +23,20 @@
 
         function showMessage(message, type) {
             const messageDiv = document.createElement('div');
-            messageDiv.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
-                type === 'success' 
-                    ? 'bg-green-100 border border-green-400 text-green-700' 
-                    : 'bg-red-100 border border-red-400 text-red-700'
-            }`;
-            
+            messageDiv.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${type === 'success'
+                ? 'bg-green-100 border border-green-400 text-green-700'
+                : 'bg-red-100 border border-red-400 text-red-700'
+                }`;
+
             messageDiv.innerHTML = `
                 <div class="flex items-center">
                     <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'} mr-2"></i>
                     <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-lg font-bold">&times;</button>
                 </div>
             `;
-            
+
             document.body.appendChild(messageDiv);
-            
+
             // Auto remove after 5 seconds
             setTimeout(() => {
                 if (messageDiv.parentElement) {
@@ -49,6 +49,7 @@
         .gradient-bg {
             background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%);
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -57,13 +58,15 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
         }
+
         .modal.show {
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         .modal-content {
             background-color: white;
             padding: 20px;
@@ -73,6 +76,7 @@
             max-height: 90vh;
             overflow-y: auto;
         }
+
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -89,48 +93,82 @@
             animation: pulse 2s infinite;
             transition: all 0.3s ease;
         }
+
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
         }
+
         .whatsapp-float i {
             margin-top: 16px;
         }
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
+
             100% {
                 transform: scale(1);
             }
         }
     </style>
 </head>
+
 <body class="bg-white">
+    <!-- pop up -->
+    <div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
+            <h2 class="text-xl font-semibold mb-4">📞 Contact Number</h2>
+            <p class="text-gray-800 text-lg mb-6">+91 9876543210</p>
+
+            <!-- 📲 Call Button -->
+            <a href="tel:+919876543210"
+                class="inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                Call Now
+            </a>
+
+            <!-- ❌ Close Button -->
+            <button onclick="closeModal()" class="mt-4 text-sm text-gray-600 hover:underline block mx-auto">
+                Close
+            </button>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-pet-blue rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-stethoscope text-white text-xl"></i>
-                        </div>
-                        <span class="text-2xl font-bold text-pet-blue">Pethoscope</span>
+                        <img src="images/logo.png" alt="Pethoscope Logo" class="w-56+ h-20  mr-3 o" />
+                        <!-- <span class="text-2xl font-bold text-pet-blue">Pethoscope</span> -->
                     </div>
+
                 </div>
                 <div class="hidden lg:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">HOME</a>
-                        <a href="doctor.html" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Meet Doctors</a>
-                        <a href="#contact" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">CONTACT</a>
-                        <button id="book-appointment-btn" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK APPOINTMENT</button>
-                        <button id="book-lab-btn" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK LAB FOR TESTING</button>
-                        <button id="book-ambulance-btn" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK AMBULANCE</button>
-                        <button id="vet-registration-btn" class="bg-pet-blue hover:bg-pet-dark-blue text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">VET REGISTRATION</button>
+                    <div class="ml-10 flex items-center justify-between space-x-4">
+                        <!-- <a href="#home" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">HOME</a> -->
+                        <a href="doctor.html"
+                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">MEET
+                            DOCTORS</a>
+                        <a href="#contact"
+                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">CONTACT</a>
+                        <a href="doctor.html"
+                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK
+                            APPOINTMENT</a>
+                        <button id="book-lab-btn"
+                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK
+                            LAB FOR TESTING</button>
+                        <button onclick="openModal()"
+                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK
+                            AMBULANCE</button>
+                        <button id="vet-registration-btn"
+                            class="bg-pet-blue hover:bg-pet-dark-blue text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">PET
+                            REGISTRATION</button>
                     </div>
                 </div>
                 <div class="lg:hidden">
@@ -146,10 +184,18 @@
                 <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-pet-blue text-base">HOME</a>
                 <a href="doctor.html" class="block px-3 py-2 text-gray-700 hover:text-pet-blue text-base">ABOUT</a>
                 <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-pet-blue text-base">CONTACT</a>
-                <button id="mobile-book-appointment-btn" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK APPOINTMENT</button>
-                <button id="mobile-book-lab-btn" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK LAB FOR TESTING</button>
-                <button id="mobile-book-ambulance-btn" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK AMBULANCE</button>
-                <button id="mobile-vet-registration-btn" class="block w-full text-left px-3 py-2 text-pet-blue font-medium text-base">VET REGISTRATION</button>
+                <button id="mobile-book-appointment-btn"
+                    class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK
+                    APPOINTMENT</button>
+                <button id="mobile-book-lab-btn"
+                    class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK LAB FOR
+                    TESTING</button>
+                <button id="mobile-menu-btn" onclick="openModal()"
+                    class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK
+                    AMBULANCE</button>
+                <button id="mobile-vet-registration-btn"
+                    class="block w-full text-left px-3 py-2 text-pet-blue font-medium text-base">PET
+                    REGISTRATION</button>
             </div>
         </div>
     </nav>
@@ -169,19 +215,24 @@
                         <span class="text-pet-blue">BEST FRIEND</span>
                     </h1>
                     <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        We provide comprehensive veterinary care for your beloved pets. Our experienced team of veterinarians is dedicated to ensuring the health and happiness of your furry family members with state-of-the-art facilities and compassionate care.
+                        We provide comprehensive veterinary care for your beloved pets. Our experienced team of
+                        veterinarians is dedicated to ensuring the health and happiness of your furry family members
+                        with state-of-the-art facilities and compassionate care.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button id="hero-book-appointment" class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
+                        <button id="hero-book-appointment"
+                            class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
                             BOOK APPOINTMENT
                         </button>
-                        <button id="hero-book-lab" class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
+                        <button id="hero-book-lab"
+                            class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
                             BOOK LAB TEST
                         </button>
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="https://i.pinimg.com/736x/eb/d4/1e/ebd41ee75e20cd2e17f4c0e2f76a5785.jpg" alt="Veterinarian with pet" class="rounded-lg shadow-lg w-full">
+                    <img src="https://i.pinimg.com/736x/eb/d4/1e/ebd41ee75e20cd2e17f4c0e2f76a5785.jpg"
+                        alt="Veterinarian with pet" class="rounded-lg shadow-lg w-full">
                 </div>
             </div>
         </div>
@@ -286,7 +337,8 @@
                 </h2>
                 <div class="w-16 h-1 bg-pet-blue mx-auto mb-8"></div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    We provide comprehensive veterinary services with modern facilities and experienced professionals to ensure your pet receives the best possible care.
+                    We provide comprehensive veterinary services with modern facilities and experienced professionals to
+                    ensure your pet receives the best possible care.
                 </p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -300,13 +352,18 @@
                         for different Cities
                     </h3>
                     <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        Our innovative home visit service allows you to book qualified veterinarians for in-home consultations across multiple cities. This convenient service ensures your pet receives professional care in the comfort of their familiar environment, reducing stress and providing personalized attention.
+                        Our innovative home visit service allows you to book qualified veterinarians for in-home
+                        consultations across multiple cities. This convenient service ensures your pet receives
+                        professional care in the comfort of their familiar environment, reducing stress and providing
+                        personalized attention.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button id="feature-book-appointment" class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-3 rounded-md text-lg font-semibold transition-colors">
+                        <button id="feature-book-appointment"
+                            class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-3 rounded-md text-lg font-semibold transition-colors">
                             BOOK APPOINTMENT
                         </button>
-                        <button id="feature-book-ambulance" class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-3 rounded-md text-lg font-semibold transition-colors">
+                        <button id="feature-book-ambulance"
+                            class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-3 rounded-md text-lg font-semibold transition-colors">
                             BOOK AMBULANCE
                         </button>
                     </div>
@@ -330,9 +387,12 @@
                         HEALTH <span class="text-pet-blue">TIPS</span>
                     </h3>
                     <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                        Regular health checkups are essential for your pet's wellbeing. Our expert veterinarians provide comprehensive health tips and preventive care guidance to keep your furry friends healthy and happy throughout their lives.
+                        Regular health checkups are essential for your pet's wellbeing. Our expert veterinarians provide
+                        comprehensive health tips and preventive care guidance to keep your furry friends healthy and
+                        happy throughout their lives.
                     </p>
-                    <button id="health-book-appointment" class="bg-pet-blue hover:bg-pet-dark-blue text-white px-6 py-3 rounded-md text-lg font-semibold transition-colors">
+                    <button id="health-book-appointment"
+                        class="bg-pet-blue hover:bg-pet-dark-blue text-white px-6 py-3 rounded-md text-lg font-semibold transition-colors">
                         BOOK APPOINTMENT
                     </button>
                 </div>
@@ -343,7 +403,8 @@
                 <!-- Image -->
                 <div class="lg:w-1/2 relative">
                     <div class="absolute -top-4 -right-4 w-32 h-32 bg-pet-blue rounded-full opacity-20"></div>
-                    <img src="./images/dog3.png" alt="Vet with corgi" class="rounded-full shadow-lg w-full max-w-sm mx-auto">
+                    <img src="./images/dog3.png" alt="Vet with corgi"
+                        class="rounded-full shadow-lg w-full max-w-sm mx-auto">
                 </div>
                 <!-- Content -->
                 <div class="lg:w-1/2">
@@ -352,12 +413,16 @@
                         ABOUT <span class="text-pet-blue">US</span>
                     </h3>
                     <p class="text-xl text-gray-600 mb-4 leading-relaxed">
-                        Pethoscope is a leading veterinary care provider dedicated to the health and wellness of your beloved pets.
+                        Pethoscope is a leading veterinary care provider dedicated to the health and wellness of your
+                        beloved pets.
                     </p>
                     <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                        With over 100 qualified veterinarians and 30+ hospitals, we provide comprehensive medical care, emergency services, and preventive treatments. Our mission is to ensure every pet receives the highest quality care with compassion and expertise.
+                        With over 100 qualified veterinarians and 30+ hospitals, we provide comprehensive medical care,
+                        emergency services, and preventive treatments. Our mission is to ensure every pet receives the
+                        highest quality care with compassion and expertise.
                     </p>
-                    <button id="about-book-appointment" class="bg-pet-blue hover:bg-pet-dark-blue text-white px-6 py-3 rounded-md text-lg font-semibold transition-colors">
+                    <button id="about-book-appointment"
+                        class="bg-pet-blue hover:bg-pet-dark-blue text-white px-6 py-3 rounded-md text-lg font-semibold transition-colors">
                         BOOK APPOINTMENT
                     </button>
                 </div>
@@ -370,75 +435,76 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-5xl font-bold text-gray-800 mb-4">
-                    PATIENTS CAN CONTACT<br>
-                    <span class="text-pet-blue">DOCTOR ONLINE</span>
+                    <span class="text-black">Our Services</span>
                 </h2>
                 <div class="w-16 h-1 bg-pet-blue mx-auto"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card Start -->
+
+                <!-- Home Visit -->
                 <div class="bg-white rounded-lg p-8 pt-16 shadow-lg text-center relative overflow-visible">
-                    <div class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-universal-access text-pet-blue text-4xl"></i>
+                    <div
+                        class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <i class="fas fa-home text-pet-blue text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Accessibility</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Home Visit</h3>
                     <p class="text-gray-600 text-lg">
-                        Easy access to veterinary care from anywhere, anytime. Our platform is designed to be user-friendly and accessible to all pet owners seeking professional veterinary consultation.
+                        Veterinary professionals at your doorstep for routine checkups and treatments.
                     </p>
                 </div>
 
+                <!-- Vaccination -->
                 <div class="bg-white rounded-lg p-8 pt-16 shadow-lg text-center relative overflow-visible">
-                    <div class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-smile text-pet-blue text-4xl"></i>
+                    <div
+                        class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <i class="fas fa-syringe text-pet-blue text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Convenience</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Vaccination</h3>
                     <p class="text-gray-600 text-lg">
-                        Schedule appointments and consultations at your convenience. No more waiting in long queues or traveling long distances for routine checkups and consultations.
+                        Ensure timely vaccinations to keep your pets safe and healthy.
                     </p>
                 </div>
 
+                <!-- Online Consultation -->
                 <div class="bg-white rounded-lg p-8 pt-16 shadow-lg text-center relative overflow-visible">
-                    <div class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-shield-alt text-pet-blue text-4xl"></i>
+                    <div
+                        class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <i class="fas fa-video text-pet-blue text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Security and privacy</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Online Consultation</h3>
                     <p class="text-gray-600 text-lg">
-                        Your pet's medical information is completely secure and confidential. We maintain the highest standards of data protection and privacy for all our clients.
+                        Connect with certified vets from home for expert guidance.
                     </p>
                 </div>
 
+                <!-- Medicines Home Delivery -->
                 <div class="bg-white rounded-lg p-8 pt-16 shadow-lg text-center relative overflow-visible">
-                    <div class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-lock text-pet-blue text-4xl"></i>
+                    <div
+                        class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <i class="fas fa-truck text-pet-blue text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Complete confidentiality</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Medicines Home Delivery</h3>
                     <p class="text-gray-600 text-lg">
-                        All consultations and medical records are kept strictly confidential. We ensure complete privacy and discretion in all our veterinary services and communications.
+                        Get pet medicines delivered at your convenience to your doorstep.
                     </p>
                 </div>
 
+                <!-- Major Surgery -->
                 <div class="bg-white rounded-lg p-8 pt-16 shadow-lg text-center relative overflow-visible">
-                    <div class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-user-md text-pet-blue text-4xl"></i>
+                    <div
+                        class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <i class="fas fa-procedures text-pet-blue text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Certified Online Doctors</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Major Surgery</h3>
                     <p class="text-gray-600 text-lg">
-                        All our veterinarians are certified professionals with years of experience. Get expert advice and treatment recommendations from qualified veterinary specialists.
+                        Advanced surgical care provided by experienced veterinary surgeons.
                     </p>
                 </div>
 
-                <div class="bg-white rounded-lg p-8 pt-16 shadow-lg text-center relative overflow-visible">
-                    <div class="w-16 h-16 bg-pet-light-blue rounded-full flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-dollar-sign text-pet-blue text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-4">Affordability</h3>
-                    <p class="text-gray-600 text-lg">
-                        Quality veterinary care at affordable prices. We believe every pet deserves the best medical care without financial burden on pet owners.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Testimonials Section -->
     <section class="py-20 gradient-bg">
@@ -450,7 +516,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg p-6 shadow-lg">
                     <div class="flex items-center mb-4">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Customer"
+                            class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold text-gray-800 text-lg">Sarah Johnson</h4>
                             <div class="text-yellow-400">
@@ -463,12 +530,14 @@
                         </div>
                     </div>
                     <p class="text-gray-600 text-lg">
-                        "Excellent service! The veterinarians are very professional and caring. My dog received the best treatment here."
+                        "Excellent service! The veterinarians are very professional and caring. My dog received the best
+                        treatment here."
                     </p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-lg">
                     <div class="flex items-center mb-4">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Customer"
+                            class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold text-gray-800 text-lg">Mike Chen</h4>
                             <div class="text-yellow-400">
@@ -481,12 +550,14 @@
                         </div>
                     </div>
                     <p class="text-gray-600 text-lg">
-                        "The home visit service is amazing! Very convenient and my cat was much more comfortable at home."
+                        "The home visit service is amazing! Very convenient and my cat was much more comfortable at
+                        home."
                     </p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-lg">
                     <div class="flex items-center mb-4">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Customer"
+                            class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold text-gray-800 text-lg">Emily Davis</h4>
                             <div class="text-yellow-400">
@@ -499,7 +570,8 @@
                         </div>
                     </div>
                     <p class="text-gray-600 text-lg">
-                        "24/7 support is fantastic. They were there when I needed emergency care for my pet. Highly recommended!"
+                        "24/7 support is fantastic. They were there when I needed emergency care for my pet. Highly
+                        recommended!"
                     </p>
                 </div>
             </div>
@@ -515,46 +587,57 @@
             </div>
             <div class="space-y-4">
                 <div class="border border-gray-200 rounded-lg">
-                    <button class="faq-button w-full text-left p-4 bg-pet-blue text-white font-semibold flex justify-between items-center text-lg">
+                    <button
+                        class="faq-button w-full text-left p-4 bg-pet-blue text-white font-semibold flex justify-between items-center text-lg">
                         <span>What services do you provide for pets?</span>
                         <i class="fas fa-minus"></i>
                     </button>
                     <div class="faq-content p-4 bg-gray-50">
                         <p class="text-gray-600 text-lg">
-                            We provide comprehensive veterinary services including routine checkups, vaccinations, emergency care, surgical procedures, dental care, and specialized treatments. Our experienced veterinarians are equipped to handle all aspects of pet healthcare.
+                            We provide comprehensive veterinary services including routine checkups, vaccinations,
+                            emergency care, surgical procedures, dental care, and specialized treatments. Our
+                            experienced veterinarians are equipped to handle all aspects of pet healthcare.
                         </p>
                     </div>
                 </div>
                 <div class="border border-gray-200 rounded-lg">
-                    <button class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
+                    <button
+                        class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
                         <span>Do you offer home visit services?</span>
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-content hidden p-4 bg-gray-50">
                         <p class="text-gray-600 text-lg">
-                            Yes, we offer convenient home visit services across multiple cities. Our qualified veterinarians can visit your home for consultations, routine checkups, and certain treatments, ensuring your pet receives care in a comfortable environment.
+                            Yes, we offer convenient home visit services across multiple cities. Our qualified
+                            veterinarians can visit your home for consultations, routine checkups, and certain
+                            treatments, ensuring your pet receives care in a comfortable environment.
                         </p>
                     </div>
                 </div>
                 <div class="border border-gray-200 rounded-lg">
-                    <button class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
+                    <button
+                        class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
                         <span>How can I book an appointment?</span>
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-content hidden p-4 bg-gray-50">
                         <p class="text-gray-600 text-lg">
-                            You can book appointments through our website, mobile app, or by calling our 24/7 helpline. We offer flexible scheduling options including same-day appointments for urgent cases and home visits at your convenience.
+                            You can book appointments through our website, mobile app, or by calling our 24/7 helpline.
+                            We offer flexible scheduling options including same-day appointments for urgent cases and
+                            home visits at your convenience.
                         </p>
                     </div>
                 </div>
                 <div class="border border-gray-200 rounded-lg">
-                    <button class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
+                    <button
+                        class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
                         <span>What are your operating hours?</span>
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-content hidden p-4 bg-gray-50">
                         <p class="text-gray-600 text-lg">
-                            We provide 24/7 emergency services and support. Our regular clinic hours vary by location, but we ensure round-the-clock availability for emergency cases and urgent pet care needs.
+                            We provide 24/7 emergency services and support. Our regular clinic hours vary by location,
+                            but we ensure round-the-clock availability for emergency cases and urgent pet care needs.
                         </p>
                     </div>
                 </div>
@@ -574,19 +657,24 @@
                         <span class="text-2xl font-bold text-pet-blue">Pethoscope</span>
                     </div>
                     <p class="text-gray-600 mb-6 text-lg">
-                        Your trusted partner in pet healthcare. We provide comprehensive veterinary services with compassion and expertise to ensure your pet's wellbeing.
+                        Your trusted partner in pet healthcare. We provide comprehensive veterinary services with
+                        compassion and expertise to ensure your pet's wellbeing.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 bg-blue-600 text-white rounded flex items-center justify-center hover:bg-blue-700 transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-blue-400 text-white rounded flex items-center justify-center hover:bg-blue-500 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 bg-blue-400 text-white rounded flex items-center justify-center hover:bg-blue-500 transition-colors">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-red-600 text-white rounded flex items-center justify-center hover:bg-red-700 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 bg-red-600 text-white rounded flex items-center justify-center hover:bg-red-700 transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-pink-600 text-white rounded flex items-center justify-center hover:bg-red-700 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 bg-pink-600 text-white rounded flex items-center justify-center hover:bg-red-700 transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -594,11 +682,18 @@
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Quick Link</h3>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Home</a></li>
-                        <li><a href="doctor.html" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">About</a></li>
-                        <li><a href="#contact" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Contact</a></li>
-                        <li><button id="footer-book-appointment" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Book Appointment</button></li>
-                        <li><button id="footer-vet-registration" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Vet Registration</button></li>
+                        <li><a href="#home" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Home</a>
+                        </li>
+                        <li><a href="doctor.html"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">About</a></li>
+                        <li><a href="#contact"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Contact</a></li>
+                        <li><button id="footer-book-appointment"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Book
+                                Appointment</button></li>
+                        <li><button id="footer-vet-registration"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Vet
+                                Registration</button></li>
                     </ul>
                 </div>
                 <div>
@@ -642,17 +737,21 @@
                 <h2 class="text-2xl font-bold text-gray-800">Veterinarian Registration</h2>
                 <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
             </div>
-            <form id="vet-registration-form" action="submit_registration.php" method="post" enctype="multipart/form-data">
+            <form id="vet-registration-form" action="submit_registration.php" method="post"
+                enctype="multipart/form-data">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
-                        <input type="text" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" name="name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Contact No. *</label>
                         <div class="flex">
-                            <span class="inline-flex items-center px-3 py-2 border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm rounded-l-md">+91</span>
-                            <input type="tel" name="contact" required class="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                            <span
+                                class="inline-flex items-center px-3 py-2 border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm rounded-l-md">+91</span>
+                            <input type="tel" name="contact" required
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                         </div>
                     </div>
                 </div>
@@ -660,74 +759,94 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp No.</label>
                         <div class="flex">
-                            <span class="inline-flex items-center px-3 py-2 border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm rounded-l-md">+91</span>
-                            <input type="tel" name="whatsapp" class="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                            <span
+                                class="inline-flex items-center px-3 py-2 border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm rounded-l-md">+91</span>
+                            <input type="tel" name="whatsapp"
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">E-Mail Id. *</label>
-                        <input type="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="email" name="email" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Current Designation *</label>
-                        <input type="text" name="designation" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" name="designation" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Course Details *</label>
-                        <input type="text" name="course" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" name="course" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">College Passout *</label>
-                        <input type="date" name="passout" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="date" name="passout" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Address *</label>
-                    <textarea name="address" required rows="3" placeholder="Plot No. | Street Name | Locality | Nearest Landmark" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea name="address" required rows="3"
+                        placeholder="Plot No. | Street Name | Locality | Nearest Landmark"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">City *</label>
-                        <input type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" name="city" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">State *</label>
-                        <input type="text" name="state" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" name="state" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pincode *</label>
-                        <input type="text" name="pincode" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" name="pincode" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Country *</label>
-                    <input type="text" name="country" value="India" required class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    <input type="text" name="country" value="India" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-pet-blue">
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Upload Photo *</label>
                     <p class="text-xs text-gray-500 mb-2">Only Image Format is allowed. And size less than 8 mb.</p>
-                    <input type="file" name="photo" accept="image/*" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    <input type="file" name="photo" accept="image/*" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Upload License Certificate *</label>
-                    <p class="text-xs text-gray-500 mb-2">Only Image and PDF Format is allowed. And size less than 8 mb.</p>
-                    <input type="file" name="license" accept="image/*,.pdf" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    <p class="text-xs text-gray-500 mb-2">Only Image and PDF Format is allowed. And size less than 8 mb.
+                    </p>
+                    <input type="file" name="license" accept="image/*,.pdf" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Upload Aadhar Card</label>
-                        <p class="text-xs text-gray-500 mb-2">Front Side * Only Image and PDF Format is allowed. And size less than 8 mb.</p>
-                        <input type="file" name="aadhar_front" accept="image/*,.pdf" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <p class="text-xs text-gray-500 mb-2">Front Side * Only Image and PDF Format is allowed. And
+                            size less than 8 mb.</p>
+                        <input type="file" name="aadhar_front" accept="image/*,.pdf"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">&nbsp;</label>
-                        <p class="text-xs text-gray-500 mb-2">Back Side * Only Image and PDF Format is allowed. And size less than 8 mb.</p>
-                        <input type="file" name="aadhar_back" accept="image/*,.pdf" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <p class="text-xs text-gray-500 mb-2">Back Side * Only Image and PDF Format is allowed. And size
+                            less than 8 mb.</p>
+                        <input type="file" name="aadhar_back" accept="image/*,.pdf"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
+                <button type="submit"
+                    class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
                     SUBMIT
                 </button>
             </form>
@@ -745,21 +864,25 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Owner Name *</label>
-                        <input type="text" id="owner-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="owner-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number *</label>
-                        <input type="tel" id="owner-contact" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="tel" id="owner-contact" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Name *</label>
-                        <input type="text" id="pet-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="pet-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Type *</label>
-                        <select id="pet-type" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <select id="pet-type" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                             <option value="">Select Pet Type</option>
                             <option value="Dog">Dog</option>
                             <option value="Cat">Cat</option>
@@ -772,11 +895,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date *</label>
-                        <input type="date" id="appointment-date" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="date" id="appointment-date" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time *</label>
-                        <select id="appointment-time" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <select id="appointment-time" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                             <option value="">Select Time</option>
                             <option value="09:00 AM">09:00 AM</option>
                             <option value="10:00 AM">10:00 AM</option>
@@ -791,13 +916,17 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Address *</label>
-                    <textarea id="appointment-address" required rows="3" placeholder="Full address for home visit" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea id="appointment-address" required rows="3" placeholder="Full address for home visit"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Reason for Visit</label>
-                    <textarea id="appointment-reason" rows="3" placeholder="Describe your pet's condition or reason for appointment" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea id="appointment-reason" rows="3"
+                        placeholder="Describe your pet's condition or reason for appointment"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
+                <button type="submit"
+                    class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
                     BOOK APPOINTMENT VIA WHATSAPP
                 </button>
             </form>
@@ -815,26 +944,31 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Owner Name *</label>
-                        <input type="text" id="lab-owner-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="lab-owner-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number *</label>
-                        <input type="tel" id="lab-owner-contact" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="tel" id="lab-owner-contact" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Name *</label>
-                        <input type="text" id="lab-pet-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="lab-pet-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Age</label>
-                        <input type="text" id="lab-pet-age" placeholder="e.g., 2 years" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="lab-pet-age" placeholder="e.g., 2 years"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Test Type *</label>
-                    <select id="lab-test-type" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    <select id="lab-test-type" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                         <option value="">Select Test Type</option>
                         <option value="Blood Test">Blood Test</option>
                         <option value="Urine Test">Urine Test</option>
@@ -849,11 +983,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date *</label>
-                        <input type="date" id="lab-date" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="date" id="lab-date" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time *</label>
-                        <select id="lab-time" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <select id="lab-time" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                             <option value="">Select Time</option>
                             <option value="09:00 AM">09:00 AM</option>
                             <option value="10:00 AM">10:00 AM</option>
@@ -868,13 +1004,16 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Address *</label>
-                    <textarea id="lab-address" required rows="3" placeholder="Full address for sample collection" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea id="lab-address" required rows="3" placeholder="Full address for sample collection"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
-                    <textarea id="lab-notes" rows="3" placeholder="Any special instructions or symptoms" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea id="lab-notes" rows="3" placeholder="Any special instructions or symptoms"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
+                <button type="submit"
+                    class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
                     BOOK LAB TEST VIA WHATSAPP
                 </button>
             </form>
@@ -892,21 +1031,25 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Owner Name *</label>
-                        <input type="text" id="ambulance-owner-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="ambulance-owner-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number *</label>
-                        <input type="tel" id="ambulance-owner-contact" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="tel" id="ambulance-owner-contact" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Name *</label>
-                        <input type="text" id="ambulance-pet-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <input type="text" id="ambulance-pet-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Pet Type *</label>
-                        <select id="ambulance-pet-type" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                        <select id="ambulance-pet-type" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                             <option value="">Select Pet Type</option>
                             <option value="Dog">Dog</option>
                             <option value="Cat">Cat</option>
@@ -918,7 +1061,8 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Emergency Type *</label>
-                    <select id="ambulance-emergency-type" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    <select id="ambulance-emergency-type" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                         <option value="">Select Emergency Type</option>
                         <option value="Accident/Injury">Accident/Injury</option>
                         <option value="Breathing Difficulty">Breathing Difficulty</option>
@@ -931,11 +1075,14 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Pickup Address *</label>
-                    <textarea id="ambulance-pickup-address" required rows="3" placeholder="Full pickup address with landmarks" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea id="ambulance-pickup-address" required rows="3"
+                        placeholder="Full pickup address with landmarks"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Destination Hospital</label>
-                    <select id="ambulance-hospital" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    <select id="ambulance-hospital"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
                         <option value="">Select Hospital (Optional - We'll recommend nearest)</option>
                         <option value="Pethoscope Main Hospital">Pethoscope Main Hospital</option>
                         <option value="Pethoscope Emergency Center">Pethoscope Emergency Center</option>
@@ -944,16 +1091,20 @@
                 </div>
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Emergency Details *</label>
-                    <textarea id="ambulance-details" required rows="3" placeholder="Describe the emergency situation and current condition of your pet" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                    <textarea id="ambulance-details" required rows="3"
+                        placeholder="Describe the emergency situation and current condition of your pet"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
                 </div>
                 <div class="bg-red-50 border border-red-200 rounded-md p-4 mb-6">
                     <div class="flex items-center">
                         <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
                         <span class="text-red-700 font-semibold">Emergency Service</span>
                     </div>
-                    <p class="text-red-600 text-sm mt-2">Our ambulance will reach you within 15-30 minutes. For immediate assistance, call our emergency hotline: +91234567890</p>
+                    <p class="text-red-600 text-sm mt-2">Our ambulance will reach you within 15-30 minutes. For
+                        immediate assistance, call our emergency hotline: +91234567890</p>
                 </div>
-                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-md font-semibold transition-colors">
+                <button type="submit"
+                    class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-md font-semibold transition-colors">
                     BOOK EMERGENCY AMBULANCE VIA WHATSAPP
                 </button>
             </form>
@@ -964,9 +1115,17 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        const menuOptions = mobileMenu.querySelectorAll('a, button, li');
+
+        menuOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
         // Modal functionality
@@ -975,7 +1134,7 @@
             document.getElementById('mobile-vet-registration-btn'),
             document.getElementById('footer-vet-registration')
         ];
-        
+
         const appointmentBtns = [
             document.getElementById('book-appointment-btn'),
             document.getElementById('mobile-book-appointment-btn'),
@@ -985,13 +1144,13 @@
             document.getElementById('about-book-appointment'),
             document.getElementById('footer-book-appointment')
         ];
-        
+
         const labBtns = [
             document.getElementById('book-lab-btn'),
             document.getElementById('mobile-book-lab-btn'),
             document.getElementById('hero-book-lab')
         ];
-        
+
         const ambulanceBtns = [
             document.getElementById('book-ambulance-btn'),
             document.getElementById('mobile-book-ambulance-btn'),
@@ -1087,9 +1246,9 @@
         }
 
         // Appointment Form
-        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+        document.getElementById('appointment-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const ownerName = document.getElementById('owner-name').value;
             const ownerContact = document.getElementById('owner-contact').value;
             const petName = document.getElementById('pet-name').value;
@@ -1119,9 +1278,9 @@ Please confirm my appointment. Thank you!`;
         });
 
         // Lab Test Form
-        document.getElementById('lab-form').addEventListener('submit', function(e) {
+        document.getElementById('lab-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const ownerName = document.getElementById('lab-owner-name').value;
             const ownerContact = document.getElementById('lab-owner-contact').value;
             const petName = document.getElementById('lab-pet-name').value;
@@ -1153,9 +1312,9 @@ Please confirm my lab test booking. Thank you!`;
         });
 
         // Ambulance Form
-        document.getElementById('ambulance-form').addEventListener('submit', function(e) {
+        document.getElementById('ambulance-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const ownerName = document.getElementById('ambulance-owner-name').value;
             const ownerContact = document.getElementById('ambulance-owner-contact').value;
             const petName = document.getElementById('ambulance-pet-name').value;
@@ -1205,7 +1364,7 @@ Please confirm my lab test booking. Thank you!`;
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
                 const icon = button.querySelector('i');
-                
+
                 if (content.classList.contains('hidden')) {
                     // Close all other FAQs
                     document.querySelectorAll('.faq-content').forEach(otherContent => {
@@ -1216,7 +1375,7 @@ Please confirm my lab test booking. Thank you!`;
                             otherContent.previousElementSibling.querySelector('i').classList.add('fa-plus');
                         }
                     });
-                    
+
                     // Open this FAQ
                     content.classList.remove('hidden');
                     button.classList.add('bg-pet-blue', 'text-white');
@@ -1233,7 +1392,7 @@ Please confirm my lab test booking. Thank you!`;
         });
 
         // Vet Registration Form submission
-        document.getElementById('vet-registration-form').addEventListener('submit', function(e) {
+        document.getElementById('vet-registration-form').addEventListener('submit', function (e) {
             vetModal.classList.remove('show');
             document.body.style.overflow = 'auto';
         });
@@ -1242,6 +1401,14 @@ Please confirm my lab test booking. Thank you!`;
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('appointment-date').setAttribute('min', today);
         document.getElementById('lab-date').setAttribute('min', today);
+
+        function openModal() {
+            document.getElementById("popupModal").classList.remove("hidden");
+        }
+        function closeModal() {
+            document.getElementById("popupModal").classList.add("hidden");
+        }
     </script>
 </body>
+
 </html>

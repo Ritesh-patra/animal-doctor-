@@ -70,6 +70,88 @@
         </div>
     </header>
 
+    <!-- Appointment Form Modal -->
+    <div id="appointment-modal"
+        class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg w-full max-w-2xl p-6 relative max-h-[90vh] overflow-y-auto">
+            <button id="close-form-btn" class="absolute top-2 right-3 text-gray-600 text-5xl">&times;</button>
+
+            <h2 class="text-2xl font-bold text-pet-blue mb-4">Book an Appointment</h2>
+
+            <form id="appointment-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Pet Owner Name *</label>
+                        <input type="text" id="owner-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number *</label>
+                        <input type="tel" id="owner-contact" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Pet Name *</label>
+                        <input type="text" id="pet-name" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Pet Type *</label>
+                        <select id="pet-type" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                            <option value="">Select Pet Type</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Bird">Bird</option>
+                            <option value="Rabbit">Rabbit</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date *</label>
+                        <input type="date" id="appointment-date" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time *</label>
+                        <select id="appointment-time" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue">
+                            <option value="">Select Time</option>
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="02:00 PM">02:00 PM</option>
+                            <option value="03:00 PM">03:00 PM</option>
+                            <option value="04:00 PM">04:00 PM</option>
+                            <option value="05:00 PM">05:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Address *</label>
+                    <textarea id="appointment-address" required rows="3" placeholder="Full address for home visit"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Reason for Visit</label>
+                    <textarea id="appointment-reason" rows="3"
+                        placeholder="Describe your pet's condition or reason for appointment"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pet-blue"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-pet-blue hover:bg-pet-dark-blue text-white py-3 px-4 rounded-md font-semibold transition-colors">
+                    BOOK APPOINTMENT VIA WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
+
+
     <main class="container mx-auto px-6 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Dr Santosh -->
@@ -94,7 +176,7 @@
                     <span>Berhampur</span>
                 </div>
                 <div class="border-t pt-4">
-                    <div class="flex justify-center space-x-4">
+                    <div class="flex justify-center space-x-4 mb-4">
                         <div class="text-center">
                             <i class="fas fa-paw text-pet-blue text-xl mb-1"></i>
                             <p class="text-xs text-gray-500">Pet Care</p>
@@ -108,8 +190,16 @@
                             <p class="text-xs text-gray-500">Emergency</p>
                         </div>
                     </div>
+
+                    <!-- Book Appointment Button -->
+                    <button data-number="918114968066"
+                        class="book-btn bg-pet-blue hover:bg-pet-dark-blue text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+                        Book Appointment
+                    </button>
+
                 </div>
             </div>
+
 
             <!-- Dr Soumik -->
             <div class="doctor-card bg-white rounded-2xl shadow-xl p-8 text-center fade-in"
@@ -147,6 +237,10 @@
                             <p class="text-xs text-gray-500">Emergency</p>
                         </div>
                     </div>
+                     <button data-number="918328919145"
+                        class="book-btn bg-pet-blue mt-5 hover:bg-pet-dark-blue text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+                        Book Appointment
+                    </button>
                 </div>
             </div>
 
@@ -189,6 +283,10 @@
                             <p class="text-xs text-gray-500">Specialist</p>
                         </div>
                     </div>
+                    <button data-number="919437322863"
+                        class="book-btn bg-pet-blue mt-3 hover:bg-pet-dark-blue text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+                        Book Appointment
+                    </button>
                 </div>
             </div>
         </div>
@@ -322,10 +420,58 @@
                     }, 100);
                 }, 100);
 
-                // You can add actual contact functionality here
-                alert('Contact functionality would be implemented here!');
             });
         });
+
+        // Open & close modal
+        const openBtn = document.getElementById('open-form-btn');
+        const modal = document.getElementById('appointment-modal');
+        const closeBtn = document.getElementById('close-form-btn');
+
+        openBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        let selectedWhatsAppNumber = null;
+
+        // Sabhi buttons ko select karke click listener lagaye
+      document.querySelectorAll('.book-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        selectedWhatsAppNumber = button.getAttribute('data-number');
+        document.getElementById('appointment-modal').classList.remove('hidden');
+    });
+});
+
+
+
+        // Handle form submit
+        document.getElementById('appointment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('owner-name').value;
+            const contact = document.getElementById('owner-contact').value;
+            const petName = document.getElementById('pet-name').value;
+            const petType = document.getElementById('pet-type').value;
+            const date = document.getElementById('appointment-date').value;
+            const time = document.getElementById('appointment-time').value;
+            const address = document.getElementById('appointment-address').value;
+            const reason = document.getElementById('appointment-reason').value;
+
+            const message = `*Appointment Request*\n\n👤 *Owner:* ${name}\n📞 *Contact:* ${contact}\n🐾 *Pet Name:* ${petName}\n🐶 *Pet Type:* ${petType}\n📅 *Date:* ${date}\n⏰ *Time:* ${time}\n🏠 *Address:* ${address}\n📝 *Reason:* ${reason}`;
+
+            // Use selectedWhatsAppNumber instead of hardcoded
+            if (selectedWhatsAppNumber) {
+                const whatsappURL = `https://wa.me/${selectedWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappURL, '_blank');
+            } else {
+                alert("Please select a doctor first.");
+            }
+        });
+
     </script>
 </body>
 
