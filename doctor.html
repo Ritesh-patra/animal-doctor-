@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Veterinary Doctors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        // Custom Tailwind Configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pet-blue': '#00bcd4',
+                        'pet-light-blue': '#b3e5fc',
+                        'pet-dark-blue': '#0097a7',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Doctor card hover animation */
+        .doctor-card {
+            transition: all 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Fade in animation for cards */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom gradient for stethoscope icon */
+        .stethoscope {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-pet-light-blue to-blue-50 min-h-screen">
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <div class="stethoscope w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-stethoscope text-white text-2xl"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-800">Our Expert Veterinary Team</h1>
+                </div>
+                <p class="text-gray-    600 text-lg max-w-2xl mx-auto">
+                    Meet our dedicated team of veterinary professionals committed to providing the best care for your
+                    beloved pets
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dr Santosh -->
+            <div class="doctor-card bg-white rounded-2xl shadow-xl p-8 text-center fade-in"
+                style="animation-delay: 0.2s;">
+                <div class="relative mb-6">
+                    <div
+                        class="w-24 h-24 bg-gradient-to-r from-pet-blue to-pet-dark-blue rounded-full mx-auto flex items-center justify-center">
+                        <i class="fas fa-user-md text-white text-3xl"></i>
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr Santosh Kumar Panda</h3>
+                <div class="bg-pet-light-blue text-pet-dark-blue px-4 py-2 rounded-full text-sm font-semibold mb-3">
+                    Veterinary Assistant Surgeon
+                </div>
+                <div class="flex items-center justify-center text-gray-600 mb-4">
+                    <i class="fas fa-map-marker-alt mr-2 text-pet-blue"></i>
+                    <span>Berhampur</span>
+                </div>
+                <div class="border-t pt-4">
+                    <div class="flex justify-center space-x-4">
+                        <div class="text-center">
+                            <i class="fas fa-paw text-pet-blue text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Pet Care</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-syringe text-green-500 text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Surgery</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-heart text-red-500 text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Emergency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dr Soumik -->
+            <div class="doctor-card bg-white rounded-2xl shadow-xl p-8 text-center fade-in"
+                style="animation-delay: 0.4s;">
+                <div class="relative mb-6">
+                    <div
+                        class="w-24 h-24 bg-gradient-to-r from-pet-blue to-pet-dark-blue rounded-full mx-auto flex items-center justify-center">
+                        <i class="fas fa-user-md text-white text-3xl"></i>
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr Soumik Swain</h3>
+                <div class="bg-pet-light-blue text-pet-dark-blue px-4 py-2 rounded-full text-sm font-semibold mb-3">
+                    Veterinary Assistant Surgeon
+                </div>
+                <div class="flex items-center justify-center text-gray-600 mb-4">
+                    <i class="fas fa-map-marker-alt mr-2 text-pet-blue"></i>
+                    <span>Berhampur</span>
+                </div>
+                <div class="border-t pt-4">
+                    <div class="flex justify-center space-x-4">
+                        <div class="text-center">
+                            <i class="fas fa-paw text-pet-blue text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Pet Care</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-syringe text-green-500 text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Surgery</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-heart text-red-500 text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Emergency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dr Kiran -->
+            <div class="doctor-card bg-white rounded-2xl shadow-xl p-8 text-center fade-in"
+                style="animation-delay: 0.6s;">
+                <div class="relative mb-6">
+                    <div
+                        class="w-24 h-24 bg-gradient-to-r from-pet-blue to-pet-dark-blue rounded-full mx-auto flex items-center justify-center">
+                        <i class="fas fa-user-md text-white text-3xl"></i>
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -right-2 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-star text-white text-sm"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr Kiran Bishoyi</h3>
+                <div class="bg-pet-light-blue text-pet-dark-blue px-4 py-2 rounded-full text-sm font-semibold mb-1">
+                    Veterinary Assistant Surgeon
+                </div>
+                <div class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    Specialist, BVO
+                </div>
+                <div class="flex items-center justify-center text-gray-600 mb-4">
+                    <i class="fas fa-award mr-2 text-yellow-500"></i>
+                    <span>Specialist Veterinarian</span>
+                </div>
+                <div class="border-t pt-4">
+                    <div class="flex justify-center space-x-4">
+                        <div class="text-center">
+                            <i class="fas fa-paw text-pet-blue text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Pet Care</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-syringe text-green-500 text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Surgery</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-microscope text-pet-dark-blue text-xl mb-1"></i>
+                            <p class="text-xs text-gray-500">Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-16 fade-in" style="animation-delay: 0.8s;">
+            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Need Veterinary Care?</h2>
+                <p class="text-gray-600 mb-6">Our experienced team is here to provide the best care for your pets.
+                    Contact us today to schedule an appointment.</p>
+                <button
+                    class="bg-gradient-to-r from-pet-blue to-pet-dark-blue text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-phone mr-2"></i>
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-pet-blue rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-stethoscope text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-pet-blue">Pethoscope</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Your trusted partner in pet healthcare. We provide comprehensive veterinary services with
+                        compassion and expertise to ensure your pet's wellbeing.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-blue-600 text-white rounded flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-blue-400 text-white rounded flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-red-600 text-white rounded flex items-center justify-center hover:bg-red-700 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-pink-600 text-white rounded flex items-center justify-center hover:bg-red-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Quick Link</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Home</a>
+                        </li>
+                        <li><a href="#about"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">About</a></li>
+                        <li><a href="#contact"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Contact</a></li>
+                        <li><button id="footer-book-appointment"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Book
+                                Appointment</button></li>
+                        <li><button id="footer-vet-registration"
+                                class="text-gray-600 hover:text-pet-blue transition-colors text-lg">Vet
+                                Registration</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Get In Touch</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-pet-blue mr-3 mt-1"></i>
+                            <div class="text-lg">
+                                <strong>Address:</strong> 15/16 balaji tower subhash colony jaipur
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-pet-blue mr-3"></i>
+                            <div class="text-lg">
+                                <strong>Email:</strong> pethoscope@gmail.com
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-pet-blue mr-3"></i>
+                            <div class="text-lg">
+                                <strong>Call:</strong> +91234567890
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-300 mt-12 pt-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center text-gray-600">
+                    <p class="text-lg">Copyright © 2023 Pethoscope. All rights reserved. Privacy Policy.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive animations for doctor cards
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.doctor-card');
+
+            // Add hover effects to doctor cards
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.boxShadow = '0 25px 50px -12px rgba(0, 188, 212, 0.25)'; // pet-blue shadow
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+                });
+            });
+
+            // Add click animation to contact button
+            const contactBtn = document.querySelector('button');
+            contactBtn.addEventListener('click', function () {
+                // Scale down animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    // Scale up animation
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        // Return to normal size
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                }, 100);
+
+                // You can add actual contact functionality here
+                alert('Contact functionality would be implemented here!');
+            });
+        });
+    </script>
+</body>
+
+</html>
