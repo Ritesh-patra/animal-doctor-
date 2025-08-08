@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Veterinary Doctors</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
         // Custom Tailwind Configuration
@@ -53,22 +54,25 @@
 </head>
 
 <body class="bg-gradient-to-br from-pet-light-blue to-blue-50 min-h-screen">
-    <header class="bg-white shadow-lg">
-        <div class="container mx-auto px-6 py-8">
-            <div class="text-center">
-                <div class="flex justify-center items-center mb-4">
-                    <div class="stethoscope w-16 h-16 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-stethoscope text-white text-2xl"></i>
-                    </div>
-                    <h1 class="text-3xl font-bold text-gray-800">Our Expert Veterinary Team</h1>
-                </div>
-                <p class="text-gray-    600 text-lg max-w-2xl mx-auto">
-                    Meet our dedicated team of veterinary professionals committed to providing the best care for your
-                    beloved pets
-                </p>
+ <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="images/logo.png" alt="Pethoscope Logo" class="w-40 h-auto mr-3" />
+            </div>
+
+            <!-- Back to Home button -->
+            <div>
+                <a href="index.html"
+                    class="flex items-center text-pet-blue font-semibold hover:underline text-sm sm:text-base">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                </a>
             </div>
         </div>
-    </header>
+    </div>
+</nav>
+
 
     <!-- Appointment Form Modal -->
     <div id="appointment-modal"

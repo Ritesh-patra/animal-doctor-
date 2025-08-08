@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pethoscope - Your Pet's Best Friend</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -220,10 +221,10 @@
                         with state-of-the-art facilities and compassionate care.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button id="hero-book-appointment"
+                        <a  href="doctor.html" 
                             class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
                             BOOK APPOINTMENT
-                        </button>
+                        </a>
                         <button id="hero-book-lab"
                             class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
                             BOOK LAB TEST
@@ -362,7 +363,7 @@
                             class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-3 rounded-md text-lg font-semibold transition-colors">
                             BOOK APPOINTMENT
                         </button>
-                        <button id="feature-book-ambulance"
+                        <button onclick="openModal()"
                             class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-3 rounded-md text-lg font-semibold transition-colors">
                             BOOK AMBULANCE
                         </button>
@@ -391,10 +392,10 @@
                         comprehensive health tips and preventive care guidance to keep your furry friends healthy and
                         happy throughout their lives.
                     </p>
-                    <button id="health-book-appointment"
+                    <a href="doctor.html" 
                         class="bg-pet-blue hover:bg-pet-dark-blue text-white px-6 py-3 rounded-md text-lg font-semibold transition-colors">
                         BOOK APPOINTMENT
-                    </button>
+                    </a>
                 </div>
             </div>
 
