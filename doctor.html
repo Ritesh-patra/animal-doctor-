@@ -54,31 +54,32 @@
 </head>
 
 <body class="bg-gradient-to-br from-pet-light-blue to-blue-50 min-h-screen">
- <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <div class="flex items-center">
-                <img src="images/logo.png" alt="Pethoscope Logo" class="w-40 h-auto mr-3" />
-            </div>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/logo.png" alt="Pethoscope Logo" class="w-40 h-auto mr-3" />
+                </div>
 
-            <!-- Back to Home button -->
-            <div>
-                <a href="index.html"
-                    class="flex items-center text-pet-blue font-semibold hover:underline text-sm sm:text-base">
-                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
-                </a>
+                <!-- Back to Home button -->
+                <div>
+                    <a href="index.html"
+                        class="flex items-center text-pet-blue font-semibold hover:underline text-sm sm:text-base">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 
     <!-- Appointment Form Modal -->
     <div id="appointment-modal"
         class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center hidden">
         <div class="bg-white rounded-lg w-full max-w-2xl p-6 relative max-h-[90vh] overflow-y-auto">
-            <button id="close-form-btn" class="absolute top-2 right-3 text-gray-600 text-5xl">&times;</button>
+            <button id="close-form-btn"
+                class="close-form absolute top-2 right-3 text-gray-600 text-5xl">&times;</button>
 
             <h2 class="text-2xl font-bold text-pet-blue mb-4">Book an Appointment</h2>
 
@@ -241,7 +242,7 @@
                             <p class="text-xs text-gray-500">Emergency</p>
                         </div>
                     </div>
-                     <button data-number="918328919145"
+                    <button data-number="918328919145"
                         class="book-btn bg-pet-blue mt-5 hover:bg-pet-dark-blue text-white font-semibold py-2 px-6 rounded-full transition duration-300">
                         Book Appointment
                     </button>
@@ -432,23 +433,29 @@
         const modal = document.getElementById('appointment-modal');
         const closeBtn = document.getElementById('close-form-btn');
 
-        openBtn.addEventListener('click', () => {
-            modal.classList.remove('hidden');
+        document.querySelectorAll('.book-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const formModal = document.getElementById('appointment-form');
+                if (formModal) {
+                    formModal.classList.remove('hidden');
+                }
+            });
         });
 
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
+      document.getElementById('close-form-btn').addEventListener('click', () => {
+    document.getElementById('appointment-modal').classList.add('hidden');
+});
+
 
         let selectedWhatsAppNumber = null;
 
         // Sabhi buttons ko select karke click listener lagaye
-      document.querySelectorAll('.book-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        selectedWhatsAppNumber = button.getAttribute('data-number');
-        document.getElementById('appointment-modal').classList.remove('hidden');
-    });
-});
+        document.querySelectorAll('.book-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                selectedWhatsAppNumber = button.getAttribute('data-number');
+                document.getElementById('appointment-modal').classList.remove('hidden');
+            });
+        });
 
 
 

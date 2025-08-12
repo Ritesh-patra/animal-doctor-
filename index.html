@@ -78,22 +78,7 @@
             overflow-y: auto;
         }
 
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            animation: pulse 2s infinite;
-            transition: all 0.3s ease;
-        }
+
 
         .whatsapp-float:hover {
             transform: scale(1.1);
@@ -153,11 +138,7 @@
                 <div class="hidden lg:block">
                     <div class="ml-10 flex items-center justify-between space-x-4">
                         <!-- <a href="#home" class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">HOME</a> -->
-                        <a href="doctor.html"
-                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">MEET
-                            DOCTORS</a>
-                        <a href="#contact"
-                            class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">CONTACT</a>
+
                         <a href="doctor.html"
                             class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK
                             APPOINTMENT</a>
@@ -168,7 +149,7 @@
                             class="text-gray-700 hover:text-pet-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">BOOK
                             AMBULANCE</button>
                         <button id="vet-registration-btn"
-                            class="bg-pet-blue hover:bg-pet-dark-blue text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">PET
+                            class="bg-pet-blue hover:bg-pet-dark-blue text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">VET
                             REGISTRATION</button>
                     </div>
                 </div>
@@ -184,7 +165,6 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-pet-blue text-base">HOME</a>
                 <a href="doctor.html" class="block px-3 py-2 text-gray-700 hover:text-pet-blue text-base">ABOUT</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-pet-blue text-base">CONTACT</a>
                 <button id="mobile-book-appointment-btn"
                     class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK
                     APPOINTMENT</button>
@@ -195,52 +175,52 @@
                     class="block w-full text-left px-3 py-2 text-gray-700 hover:text-pet-blue text-base">BOOK
                     AMBULANCE</button>
                 <button id="mobile-vet-registration-btn"
-                    class="block w-full text-left px-3 py-2 text-pet-blue font-medium text-base">PET
+                    class="block w-full text-left px-3 py-2 text-pet-blue font-medium text-base">VET
                     REGISTRATION</button>
             </div>
         </div>
     </nav>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/91234567890?text=Hello! I need help with my pet." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <!-- Hero Section -->
-    <section id="home" class="gradient-bg min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
-                        YOUR PET'S<br>
-                        <span class="text-pet-blue">BEST FRIEND</span>
-                    </h1>
-                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        We provide comprehensive veterinary care for your beloved pets. Our experienced team of
-                        veterinarians is dedicated to ensuring the health and happiness of your furry family members
-                        with state-of-the-art facilities and compassionate care.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a  href="doctor.html" 
-                            class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
-                            BOOK APPOINTMENT
-                        </a>
-                        <button id="hero-book-lab"
-                            class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
-                            BOOK LAB TEST
-                        </button>
-                    </div>
-                </div>
-                <div class="relative">
-                    <img src="https://i.pinimg.com/736x/eb/d4/1e/ebd41ee75e20cd2e17f4c0e2f76a5785.jpg"
-                        alt="Veterinarian with pet" class="rounded-lg shadow-lg w-full">
+ <section id="home" class="gradient-bg min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
+                    ଆପଣଙ୍କ ପ୍ରିୟ ପ୍ରାଣୀର<br>
+                    <span class="text-pet-blue">ଶ୍ରେଷ୍ଠ ମିତ୍ର</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                    ଆମେ ଆପଣଙ୍କ ପ୍ରିୟ ପ୍ରାଣୀମାନଙ୍କ ପାଇଁ ସମ୍ପୂର୍ଣ୍ଣ ପଶୁ-ଚିକିତ୍ସା ସେବା ପ୍ରଦାନ କରୁଛୁ।
+                    ଆମର ଅନୁଭବୀ ପଶୁ-ଚିକିତ୍ସକମାନଙ୍କ ଦଳ 
+                    ଆପଣଙ୍କ ପ୍ରିୟ ପଶୁଙ୍କ ସ୍ୱାସ୍ଥ୍ୟ ଓ ଖୁସିକୁ 
+                    ନିଶ୍ଚିତ କରିବା ପାଇଁ 
+                    ଆଧୁନିକ ସୁବିଧାମାନଙ୍କ ସହିତ 
+                    ସହାନୁଭୂତିପୂର୍ଣ୍ଣ ସେବା ପ୍ରଦାନ କରୁଛନ୍ତି।
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="doctor.html"
+                        class="bg-pet-blue hover:bg-pet-dark-blue text-white px-8 py-4 rounded-md text-center text-lg font-semibold transition-colors">
+                        ଡାକ୍ତରଙ୍କୁ ବୁକ୍ କରନ୍ତୁ
+                    </a>
+                    <button id="hero-book-lab"
+                        class="border-2 border-pet-blue text-pet-blue hover:bg-pet-blue hover:text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors">
+                        ଲାବ୍ ପରୀକ୍ଷା ବୁକ୍ କରନ୍ତୁ
+                    </button>
                 </div>
             </div>
+            <div class="relative">
+                <img src="images/bg.png"
+                    alt="ପଶୁ-ଚିକିତ୍ସକ ସହିତ ପ୍ରାଣୀ" class="rounded-lg w-full">
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Statistics Section -->
-    <section class="bg-pet-blue py-16">
+    <!-- <section class="bg-pet-blue py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
                 <div>
@@ -269,10 +249,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Gallery Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-5xl font-bold text-gray-800 mb-4">
@@ -326,7 +306,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Features Section -->
     <section class="py-20 bg-white">
@@ -392,7 +372,7 @@
                         comprehensive health tips and preventive care guidance to keep your furry friends healthy and
                         happy throughout their lives.
                     </p>
-                    <a href="doctor.html" 
+                    <a href="doctor.html"
                         class="bg-pet-blue hover:bg-pet-dark-blue text-white px-6 py-3 rounded-md text-lg font-semibold transition-colors">
                         BOOK APPOINTMENT
                     </a>
@@ -418,7 +398,7 @@
                         beloved pets.
                     </p>
                     <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                        With over 100 qualified veterinarians and 30+ hospitals, we provide comprehensive medical care,
+                        With over 10 qualified veterinarians and 30+ hospitals, we provide comprehensive medical care,
                         emergency services, and preventive treatments. Our mission is to ensure every pet receives the
                         highest quality care with compassion and expertise.
                     </p>
@@ -508,7 +488,7 @@
 
 
     <!-- Testimonials Section -->
-    <section class="py-20 gradient-bg">
+    <!-- <section class="py-20 gradient-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-5xl font-bold text-gray-800 mb-4">TESTIMONIALS</h2>
@@ -577,7 +557,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- FAQ Section -->
     <section class="py-20 bg-white">
@@ -642,6 +622,20 @@
                         </p>
                     </div>
                 </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button
+                        class="faq-button w-full text-left p-4 font-semibold flex justify-between items-center text-lg">
+                        <span>What about consultation fees?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 bg-gray-50">
+                        <p class="text-gray-600 text-lg">
+                            Consultation fees may vary depending on the doctor and type of service.
+                            For accurate fee details, please contact the doctor directly.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
