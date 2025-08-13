@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Health Tips - Complete Care Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pet-blue': '#00bcd4',
+                        'pet-light-blue': '#b3e5fc',
+                        'pet-dark-blue': '#0097a7',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}   
+</style>
+
+<body class="bg-gray-50">
+
+
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/logo.png" alt="Pethoscope Logo" class="w-40 h-auto mr-3" />
+                </div>
+
+                <!-- Back to Home button -->
+                <div>
+                    <a href="index.html"
+                        class="flex items-center text-pet-blue font-semibold hover:underline text-sm sm:text-base">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation -->
+    <nav class="bg-pet-light-blue py-4 sticky top-0 z-10 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-nowrap overflow-x-auto space-x-2 md:space-x-6 scrollbar-hide">
+                <button onclick="showPetTips('dogs')"
+                    class="pet-nav-btn bg-white hover:bg-pet-blue hover:text-white px-4 py-2 rounded-full transition-all duration-300 mb-2 flex-shrink-0">
+                    <i class="fas fa-dog mr-2"></i>Dogs
+                </button>
+                <button onclick="showPetTips('cats')"
+                    class="pet-nav-btn bg-white hover:bg-pet-blue hover:text-white px-4 py-2 rounded-full transition-all duration-300 mb-2 flex-shrink-0">
+                    <i class="fas fa-cat mr-2"></i>Cats
+                </button>
+                <button onclick="showPetTips('rabbits')"
+                    class="pet-nav-btn bg-white hover:bg-pet-blue hover:text-white px-4 py-2 rounded-full transition-all duration-300 mb-2 flex-shrink-0">
+                    <i class="fas fa-rabbit mr-2"></i>Rabbits
+                </button>
+                <button onclick="showPetTips('cows')"
+                    class="pet-nav-btn bg-white hover:bg-pet-blue hover:text-white px-4 py-2 rounded-full transition-all duration-300 mb-2 flex-shrink-0">
+                    <i class="fas fa-cow mr-2"></i>Cows
+                </button>
+                <button onclick="showPetTips('birds')"
+                    class="pet-nav-btn bg-white hover:bg-pet-blue hover:text-white px-4 py-2 rounded-full transition-all duration-300 mb-2 flex-shrink-0">
+                    <i class="fas fa-dove mr-2"></i>Birds
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Emergency Contact Banner -->
+        <div class="bg-red-100 border-l-4 border-red-500 p-4 mb-8 rounded-r-lg">
+            <div class="flex items-center">
+                <i class="fas fa-exclamation-triangle text-red-500 text-xl mr-3"></i>
+                <div>
+                    <h3 class="text-red-800 font-semibold">Emergency? Contact Our Veterinarians Immediately!</h3>
+                    <p class="text-red-700">24/7 Emergency Helpline: <span class="font-bold">1960</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dogs Section -->
+        <section id="dogs" class="pet-section">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-dog text-pet-blue text-4xl mr-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-800">Dog Health Tips</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-utensils mr-2"></i>Nutrition & Diet
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Feed high-quality dog food appropriate for age</li>
+                                <li>• Avoid chocolate, grapes, onions, and garlic</li>
+                                <li>• Maintain regular feeding schedule</li>
+                                <li>• Always provide fresh water</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-running mr-2"></i>Exercise & Activity
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Daily walks (30-60 minutes minimum)</li>
+                                <li>• Mental stimulation with toys and games</li>
+                                <li>• Regular playtime and socialization</li>
+                                <li>• Adjust exercise based on breed and age</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-stethoscope mr-2"></i>Health Monitoring
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Regular vet checkups (annually)</li>
+                                <li>• Keep vaccinations up to date</li>
+                                <li>• Monitor weight and appetite changes</li>
+                                <li>• Check for lumps, bumps, or skin issues</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-cut mr-2"></i>Grooming & Hygiene
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Regular brushing (daily for long-haired breeds)</li>
+                                <li>• Dental care - brush teeth regularly</li>
+                                <li>• Nail trimming every 2-3 weeks</li>
+                                <li>• Clean ears weekly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cats Section -->
+        <section id="cats" class="pet-section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-cat text-pet-blue text-4xl mr-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-800">Cat Health Tips</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-fish mr-2"></i>Nutrition & Diet
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• High-protein, low-carb diet</li>
+                                <li>• Wet food helps with hydration</li>
+                                <li>• Avoid milk, onions, and chocolate</li>
+                                <li>• Multiple small meals throughout day</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-home mr-2"></i>Indoor Environment
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Clean litter box daily</li>
+                                <li>• Provide scratching posts</li>
+                                <li>• Safe hiding spots and perches</li>
+                                <li>• Interactive toys for mental stimulation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-heartbeat mr-2"></i>Health Care
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Annual vet visits and vaccinations</li>
+                                <li>• Spay/neuter for health benefits</li>
+                                <li>• Monitor urination habits</li>
+                                <li>• Watch for hairball issues</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-spa mr-2"></i>Grooming
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Regular brushing prevents matting</li>
+                                <li>• Dental care is crucial</li>
+                                <li>• Trim nails every 2 weeks</li>
+                                <li>• Check ears for mites or infection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rabbits Section -->
+        <section id="rabbits" class="pet-section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-rabbit text-pet-blue text-4xl mr-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-800">Rabbit Health Tips</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-carrot mr-2"></i>Diet & Nutrition
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Unlimited timothy hay daily</li>
+                                <li>• High-fiber pellets (1/4 cup per 5 lbs)</li>
+                                <li>• Fresh vegetables daily</li>
+                                <li>• Limited fruits as treats</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-home mr-2"></i>Housing & Environment
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Large cage with room to hop</li>
+                                <li>• Safe area for daily exercise</li>
+                                <li>• Comfortable bedding (not cedar)</li>
+                                <li>• Protection from extreme temperatures</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-user-md mr-2"></i>Health Monitoring
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Annual vet checkups</li>
+                                <li>• Monitor eating and bathroom habits</li>
+                                <li>• Watch for dental problems</li>
+                                <li>• Check for mites and parasites</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-brush mr-2"></i>Grooming Care
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Regular brushing prevents hairballs</li>
+                                <li>• Trim nails monthly</li>
+                                <li>• Clean ears gently</li>
+                                <li>• Never bathe unless absolutely necessary</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cows Section -->
+        <section id="cows" class="pet-section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-cow text-pet-blue text-4xl mr-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-800">Cow Health Tips</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-seedling mr-2"></i>Nutrition & Feed
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Quality pasture grass and hay</li>
+                                <li>• Balanced mineral supplements</li>
+                                <li>• Fresh, clean water (30-50 gallons/day)</li>
+                                <li>• Avoid moldy or spoiled feed</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-shield-alt mr-2"></i>Disease Prevention
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Regular vaccinations schedule</li>
+                                <li>• Quarantine new animals</li>
+                                <li>• Monitor for respiratory issues</li>
+                                <li>• Maintain clean living conditions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-thermometer mr-2"></i>Health Monitoring
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Daily observation for illness signs</li>
+                                <li>• Regular hoof trimming and care</li>
+                                <li>• Monitor body condition score</li>
+                                <li>• Check for parasites regularly</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-warehouse mr-2"></i>Housing & Comfort
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Adequate shelter from weather</li>
+                                <li>• Proper ventilation in barns</li>
+                                <li>• Clean, dry bedding</li>
+                                <li>• Sufficient space for movement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birds Section -->
+        <section id="birds" class="pet-section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-dove text-pet-blue text-4xl mr-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-800">Bird Health Tips</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-apple-alt mr-2"></i>Diet & Nutrition
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Species-appropriate pellet diet</li>
+                                <li>• Fresh fruits and vegetables daily</li>
+                                <li>• Avoid avocado, chocolate, caffeine</li>
+                                <li>• Fresh water changed daily</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-home mr-2"></i>Cage & Environment
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Spacious cage for wing spreading</li>
+                                <li>• Natural perches of varying sizes</li>
+                                <li>• Safe toys for mental stimulation</li>
+                                <li>• Proper lighting (10-12 hours)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-eye mr-2"></i>Health Signs
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Monitor droppings daily</li>
+                                <li>• Watch for changes in behavior</li>
+                                <li>• Check for respiratory issues</li>
+                                <li>• Annual avian vet checkups</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-pet-light-blue p-4 rounded-lg">
+                            <h3 class="font-semibold text-pet-dark-blue mb-2 flex items-center">
+                                <i class="fas fa-heart mr-2"></i>Social Needs
+                            </h3>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• Daily interaction and socialization</li>
+                                <li>• Out-of-cage time in safe area</li>
+                                <li>• Mental stimulation with training</li>
+                                <li>• Consider companion birds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="bg-pet-blue text-white rounded-xl p-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Professional Help?</h2>
+            <p class="text-xl mb-6">Our experienced veterinarians are here to help your pets stay healthy and happy!</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="tel:+911690"
+                    class="bg-white text-pet-blue px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i>Call Now: 1690
+                </a>
+
+                <a href="doctor.html"
+                    class="bg-pet-dark-blue px-8 py-3 rounded-lg font-semibold hover:bg-opacity-80 transition-colors">
+                    <i class="fas fa-calendar mr-2"></i>Book Appointment
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">© 2025 Pet Health Care Website. All rights reserved.</p>
+            <p class="text-gray-400">Caring for your pets with love and expertise.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPetTips(petType) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.pet-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById(petType).classList.remove('hidden');
+
+            // Update active button
+            const buttons = document.querySelectorAll('.pet-nav-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-pet-blue', 'text-white');
+                btn.classList.add('bg-white');
+            });
+
+            event.target.classList.add('bg-pet-blue', 'text-white');
+            event.target.classList.remove('bg-white');
+
+            // Smooth scroll to content
+            document.getElementById(petType).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show dogs section by default
+        document.addEventListener('DOMContentLoaded', function () {
+            showPetTips('dogs');
+        });
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
